@@ -8,6 +8,13 @@ from django.db import models
 
 class CustomText(models.Model):
     title = models.CharField(max_length=150,)
+    fkUser = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="customtext_fkUser",
+    )
 
     def __str__(self):
         return self.title
@@ -38,9 +45,9 @@ class AnotherModel(models.Model):
     test = models.BigIntegerField()
     newField = models.ForeignKey(
         "home.CustomText",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="anothermodel_newField",
     )
 
@@ -48,6 +55,13 @@ class AnotherModel(models.Model):
 class DemoModel(models.Model):
     "Generated Model"
     demoField = models.BigIntegerField()
+    fkKey = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="demomodel_fkKey",
+    )
 
 
 class DemoModel101(models.Model):
@@ -55,9 +69,9 @@ class DemoModel101(models.Model):
     demoField = models.BigIntegerField()
     demoFieldModel101 = models.ForeignKey(
         "home.DemoModel10123",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="demomodel101_demoFieldModel101",
     )
 
