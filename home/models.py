@@ -46,3 +46,8 @@ class DemoModel(models.Model):
 class DemoModel101(models.Model):
     "Generated Model"
     demoField = models.BigIntegerField()
+
+
+class DemoModel10123(models.Model):
+    "Generated Model"
+    demoField = models.BigIntegerField()
