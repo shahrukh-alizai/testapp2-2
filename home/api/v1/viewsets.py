@@ -3,7 +3,6 @@ from rest_framework import authentication
 from .serializers import (
     AnotherModelSerializer,
     CustomTextSerializer,
-    DemoModelSerializer,
     HomePageSerializer,
 )
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
@@ -19,7 +18,7 @@ from home.api.v1.serializers import (
     HomePageSerializer,
     UserSerializer,
 )
-from home.models import AnotherModel, CustomText, DemoModel, HomePage
+from home.models import AnotherModel, CustomText, HomePage
 
 
 class SignupViewSet(ModelViewSet):
@@ -66,12 +65,3 @@ class AnotherModelViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = AnotherModel.objects.all()
-
-
-class DemoModelViewSet(viewsets.ModelViewSet):
-    serializer_class = DemoModelSerializer
-    authentication_classes = (
-        authentication.SessionAuthentication,
-        authentication.TokenAuthentication,
-    )
-    queryset = DemoModel.objects.all()
