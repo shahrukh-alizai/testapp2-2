@@ -36,6 +36,13 @@ class HomePage(models.Model):
 class AnotherModel(models.Model):
     "Generated Model"
     test = models.BigIntegerField()
+    newField = models.ForeignKey(
+        "home.CustomText",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="anothermodel_newField",
+    )
 
 
 class DemoModel(models.Model):
@@ -46,6 +53,13 @@ class DemoModel(models.Model):
 class DemoModel101(models.Model):
     "Generated Model"
     demoField = models.BigIntegerField()
+    demoFieldModel101 = models.ForeignKey(
+        "home.DemoModel10123",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="demomodel101_demoFieldModel101",
+    )
 
 
 class DemoModel10123(models.Model):
